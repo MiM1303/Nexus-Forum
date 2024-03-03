@@ -24,6 +24,7 @@
             extend: {
               colors: {
                 'primary-purple': '#797DFC',
+                'primary-blue': '#12132D',
               }
             }
           }
@@ -32,11 +33,12 @@
 
 </head>
 <body>
-    <header class="mx-6 lg:mx-[135px] mt-12">
+    <!-- HEADER START -->
+    <header class="mx-6 lg:container lg:mx-auto mt-12 ">
         <!-- NAVBAR START -->
-        <div class="navbar bg-base-100 flex justify-between">
+        <div class="navbar bg-base-100 flex justify-between mb-10">
             <div class="flex-1">
-              <a class="font-mulish text-4xl font-black">NexUS</a>
+              <a class="font-mulish text-4xl font-black text-primary-blue">NexUS</a>
             </div>
             <div class="flex gap-6">
                 <!-- icons -->
@@ -60,8 +62,40 @@
           </div>
         <!-- NAVBAR END -->
 
+        <!-- BANNER START -->
+        <section class="font-mulish">
+            <div class="bg-primary-blue rounded-[32px]">
+                <div class="lg:h-[550px] flex flex-col lg:flex-row gap-16 lg:gap-36 justify-center items-center px-20 py-12 lg:p-24 bg-[url('images/bgbanner.png')] bg-no-repeat bg-cover bg-bottom ">
+                    <!-- left portion -->
+                    <div class="text-center lg:text-left">
+                        <h2 class="text-white font-black text-3xl lg:text-6xl ">Welcome to the <br>
+                        NexUS Forum</h3>
+                        <p class="mt-5 mb-8 text-lg lg:text-xl font-medium text-gray-400">Share your favorite opinion and win a NexUs forum coffee mug from us!</p>
+                        <!-- <div class="flex">
+                            <input type="text" placeholder="Search here anything" class="input input-bordered w-auto rounded-full" />
+                            <button class="btn text-white font-mulish font-bold text-xl bg-primary-purple rounded-full px-10 border-0">Search</button>
+                        </div> -->
+    
+                        <label class="w-full lg:w-2/3 py-8 pr-2 lg:pl-6 rounded-full input input-bordered flex items-center justify-between ">
+                            <input type="text" class="rounded-full" placeholder="Search here anything" />
+                            <button class=" btn text-white font-mulish font-bold text-lg lg:text-xl bg-primary-purple rounded-full px-5 lg:px-10 border-0">Search</button>
+                          </label>
+                    </div>
+                    <!-- right portion -->
+                    <div class="w-full lg:w-1/4 h-fit bg-white font-medium text-base lg:text-lg flex flex-col gap-4 justify-between rounded-[32px] px-12 py-12 text-gray-500">
+                        <p class="flex justify-between"><span>Registered Users</span> <span>01</span></p>
+                        <p class="flex justify-between"><span>Forum</span> <span>05</span></p>
+                        <p class="flex justify-between"><span>Topics</span> <span>01</span></p>
+                        <p class="flex justify-between"><span>Replies</span> <span>01</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BANNER END -->
+
         
     </header>
+    <!-- HEADER END -->
     <main>
 
     </main>
