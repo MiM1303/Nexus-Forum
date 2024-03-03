@@ -9,10 +9,58 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a33c5ed21f.js" crossorigin="anonymous"></script>
+
+    <!-- TAILWIND CUSTOM CLASSES -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'primary-purple': '#797DFC',
+              }
+            }
+          }
+        }
+      </script>
+
 </head>
 <body>
-    <header>
+    <header class="mx-6 lg:mx-[135px] mt-12">
+        <!-- NAVBAR START -->
+        <div class="navbar bg-base-100 flex justify-between">
+            <div class="flex-1">
+              <a class="font-mulish text-4xl font-black">NexUS</a>
+            </div>
+            <div class="flex gap-6">
+                <!-- icons -->
+                <div class="hidden lg:flex gap-3 text-white font-inter text-xs font-normal">
+                    <div class="tooltip " data-tip="Home">
+                        <button class="btn rounded-full bg-gray-50 border-gray-200"><i class="fa-solid fa-house"></i></button>
+                    </div>
+                    <div class="tooltip " data-tip="Write">
+                        <button class="btn rounded-full bg-gray-50 border-gray-200"><i class="fa-solid fa-pen"></i></button>
+                    </div>
+                    <div class="tooltip " data-tip="Add">
+                        <button class="btn rounded-full bg-gray-50 border-gray-200"><i class="fa-solid fa-user-plus"></i></button>
+                    </div>
+                    <div class="tooltip " data-tip="Bookmark">
+                        <button class="btn rounded-full bg-gray-50 border-gray-200"><i class="fa-regular fa-flag"></i></button>
+                    </div>
+                </div>
+                <!-- sign in -->
+                <button class="btn text-white font-mulish font-bold text-xl bg-primary-purple rounded-full px-10">Sign In</button>
+            </div>
+          </div>
+        <!-- NAVBAR END -->
 
+        
     </header>
     <main>
 
