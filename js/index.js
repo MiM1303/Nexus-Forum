@@ -1,17 +1,29 @@
 const latestPostContainer = document.getElementById('latest-post-container');
 const postContainer = document.getElementById('post-container');
 const readPostContainer = document.getElementById('read-post-container');
+const readPostCount = document.getElementById('read-post-count');
+const searchField = document.getElementById('search-field');
+const discussContainer = document.getElementById('discuss-container');
 
-console.log(readPostContainer);
+let totalReadPost=0;
+readPostCount.innerText=totalReadPost;
 
+// let searchText = 'posts';
+
+// console.log(readPostCount);
+
+const retrievePosts = async()=>
+{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+    const posts = await res.json();
+    const retPosts = posts.posts;
+    loadPosts(retPosts);
+}
 
 // LETS DISCUSS SECTION POST LOADING
-const loadPosts = async ()=>
-{
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
-    const posts = await res.json();
-    const allPosts = posts.posts;
-
+const loadPosts = async (allPosts)=>
+{ 
+    console.log(allPosts);
     allPosts.forEach (post =>{
         const postCard = document.createElement('div');
         postCard.classList = 'flex gap-6 rounded-3xl pl-7 pr-8 py-6 lg:p-6 lg:p-10 bg-[#F3F3F5]'
@@ -51,12 +63,44 @@ const loadPosts = async ()=>
         postContainer.appendChild(postCard);    
     })
 
-    const btnMarkRead = document.getElementsByClassName('btn-mark-read');
-    console.log(btnMarkRead);
+    toggleLoadingSpinner(false);
     
 }
 
-loadPosts();
+retrievePosts();
+
+// SEARCH BY CATEGORY
+
+const handleSearch = async() =>
+{
+    toggleLoadingSpinner(true);
+    const categoryName = searchField.value;
+
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
+    const posts = await res.json();
+    const retPosts = posts.posts;
+    console.log(retPosts);
+    postContainer.innerHTML='';
+    setTimeout(() => {
+        loadPosts(retPosts);
+    }, 2000);
+    
+}
+
+const toggleLoadingSpinner = (isLoading) =>
+{
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if(isLoading)
+    {
+        loadingSpinner.classList.remove('hidden');
+        discussContainer.classList.add('hidden');
+    }
+    else
+    {
+        loadingSpinner.classList.add('hidden');
+        discussContainer.classList.remove('hidden');
+    }
+}
 
 
 function markAsRead(post) {
@@ -78,6 +122,9 @@ function markAsRead(post) {
     `
 
     readPostContainer.appendChild(readPostCard);
+    totalReadPost++;
+
+    readPostCount.innerText = totalReadPost;
 
 }
 

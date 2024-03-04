@@ -78,8 +78,8 @@
                         </div> -->
     
                         <label class="w-full lg:w-2/3 py-8 pr-2 lg:pl-6 rounded-full input input-bordered flex items-center justify-between ">
-                            <input type="text" class="rounded-full" placeholder="Search here anything" />
-                            <button class=" btn text-white font-mulish font-bold text-lg lg:text-xl bg-primary-purple rounded-full px-5 lg:px-10 border-0">Search</button>
+                            <input id="search-field" type="text" class="rounded-full" placeholder="Search here anything" />
+                            <button onclick="handleSearch()" class="btn text-white font-mulish font-bold text-lg lg:text-xl bg-primary-purple rounded-full px-5 lg:px-10 border-0">Search</button>
                           </label>
                     </div>
                     <!-- right portion -->
@@ -107,8 +107,14 @@
             </div>
 
 
+            <div id="loading-spinner" class="hidden flex items-center justify-center text-center my-40">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
             <!-- dynamic content div -->
-            <div class="flex flex-col lg:flex-row gap-6">
+            <div id="discuss-container" class="flex flex-col lg:flex-row gap-6">
                 <!-- left posts div -->
                 <div  id="post-container" class="lg:w-2/3 flex flex-col gap-6">
                     <!-- single post -->
